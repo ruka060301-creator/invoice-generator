@@ -24,8 +24,8 @@ def create_invoice(template_path, df, year, month, output_dir):
     Args:
         template_path: Excelテンプレートのパス
         df: csv_loader が返した DataFrame
-        year:  対象年(例: 2026)
-        month: 対象月(例: 8)
+        year:  対象年
+        month: 対象月
         output_dir: 出力先フォルダ
 
     Returns:
@@ -78,7 +78,7 @@ def _load_template(template_path):
 def _find_paste_sheet(workbook):
     """「〜貼り付けシート」という名前のシートを探す。
 
-    シート名に施設名が含まれる(例:「ランズコンドホテル貼り付けシート」)ため、
+    シート名に施設名が含まれるため、
     完全一致ではなく末尾一致で探すことで、どの施設のテンプレートでも動く。
     """
     for sheet in workbook.worksheets:
@@ -100,8 +100,6 @@ def _get_invoice_sheet(workbook):
 
 def _extract_hotel_name(sheet_title):
     """シート名から施設名を取り出す。
-
-    「ランズコンドホテル貼り付けシート」→「ランズコンドホテル」
     """
     return sheet_title[: -len(config.PASTE_SHEET_SUFFIX)]
 
@@ -182,7 +180,6 @@ def _rebuild_detail_formulas(sheet, paste_sheet_title, record_count):
 
 def _update_header(sheet, year, month, hotel_name):
     """請求書の年月に関する項目を更新する。"""
-    # 「8月送客手数料　ランズコンドホテル」(区切りは全角スペース)
     sheet[config.CELL_COMMISSION_LABEL] = f"{month}月送客手数料\u3000{hotel_name}"
 
     # 請求書番号は「2026-08」形式

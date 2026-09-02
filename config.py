@@ -44,7 +44,7 @@ USE_COLUMNS = [
 # 貼り付けシートの設定
 # ---------------------------------------------------------------------------
 
-# シート名は施設ごとに違う(例:「ランズコンドホテル貼り付けシート」)ため、
+# シート名は施設ごとに違うため、
 # 完全一致ではなく「この文字列で終わるシート」を探す方式にする。
 PASTE_SHEET_SUFFIX = "貼り付けシート"
 
@@ -86,8 +86,8 @@ DETAIL_COL_ROOM_TYPE = 7  # G列
 DETAIL_COL_AMOUNT = 8     # H列
 
 # 毎月書き換えが必要なセル
-CELL_COMMISSION_LABEL = "A17"  # 「8月送客手数料　ランズコンドホテル」
-CELL_INVOICE_NUMBER = "F7"     # 「2026-08」
+CELL_COMMISSION_LABEL = "A17"  
+CELL_INVOICE_NUMBER = "F7"     
 CELL_ISSUE_DATE = "H7"         # 発行日(翌月1日)
 CELL_DUE_DATE = "H9"           # 支払期限(翌月末日)
 
